@@ -1,5 +1,8 @@
 package alogs.slidingwindow;
 
+/*
+https://leetcode.com/problems/minimum-size-subarray-sum/
+ */
 class MinimumSizeSubarraySum {
     public static void main(String[] args) {
         MinimumSizeSubarraySum obj = new MinimumSizeSubarraySum();
