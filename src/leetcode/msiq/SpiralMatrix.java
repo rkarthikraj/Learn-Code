@@ -54,4 +54,10 @@ class SpiralMatrix {
         }
         return result;
     }
+
+    public List<Integer> spiralOrderOptimized(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+
+        return result;
+    }
 }

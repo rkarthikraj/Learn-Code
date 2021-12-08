@@ -10,5 +10,7 @@ public class A1 {
             nums /= 10;
             System.out.println(n);
         }
+
+        System.out.println("--" + (2 % 4));
     }
 }
