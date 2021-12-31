@@ -2,44 +2,28 @@ package javaoops.concepts;
 
 import java.io.IOException;
 
-interface Test {
-    void run();
-
-    void stop();
-
-    void start();
-
-    void walk();
+interface TestA {
+    void show();
 }
 
-interface Extra extends Test{
-    void isWorking();
+interface TestB {
+    void show();
 }
-class Demo implements Test {
-    public void stop() {
 
-    }
+abstract class TestAB {
+    abstract void show();
+}
 
-    public void run() {
-
-    }
-
-    public void start() {
-
-    }
-
-    public void walk() {
-
-    }
-
-    public void myMethod() {
-
+class Demo extends TestAB implements TestA, TestB {
+    @Override
+    public void show() {
+        System.out.println("Interface implemented");
     }
 }
 
 public class Interface {
     public static void main(String[] args) throws IOException {
-        Test objTest = new Demo();
-        ((Demo) objTest).myMethod();
+        Demo obj = new Demo();
+        obj.show();
     }
 }
