@@ -4,9 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
-Not Working.
+Runtime: 7 ms, faster than 72.20% of Java online submissions for Integer to English Words.
+Memory Usage: 39.2 MB, less than 44.32% of Java online submissions for Integer to English Words.
  */
 class IntegerToEnglishWords {
+    String[] bigUnits = {"", " Thousand", " Million", " Billion"};
+    String[] digits = {"", " One", " Two", " Three", " Four", " Five", " Six", " Seven", " Eight", " Nine", ""};
+    String[] tens = {"", "", " Twenty", " Thirty", " Forty", " Fifty", " Sixty", " Seventy", " Eighty", " Ninety"};
+    String[] tenToTwenty = {" Ten", " Eleven", " Twelve", " Thirteen", " Fourteen", " Fifteen", " Sixteen", " Seventeen", " Eighteen", " Nineteen"};
+
     public static void main(String[] args) {
         IntegerToEnglishWords obj = new IntegerToEnglishWords();
         int num1 = 1;
@@ -21,22 +27,59 @@ class IntegerToEnglishWords {
         int num10 = 120;
         int num11 = 0;
         int num12 = 111;
+        int num13 = 121;
 
-//        System.out.println(obj.numberToWords(num1));
-//        System.out.println(obj.numberToWords(num2));
-//        System.out.println(obj.numberToWords(num3));
-//        System.out.println(obj.numberToWords(num4));
-//        System.out.println(obj.numberToWords(num5));
-//        System.out.println(obj.numberToWords(num6));
-//        System.out.println(obj.numberToWords(num7));
-//        System.out.println(obj.numberToWords(num8));
-//        System.out.println(obj.numberToWords(num9));
-//        System.out.println(obj.numberToWords(num10));
-//        System.out.println(obj.numberToWords(num11));
+        System.out.println(obj.numberToWords(num1));
+        System.out.println(obj.numberToWords(num2));
+        System.out.println(obj.numberToWords(num3));
+        System.out.println(obj.numberToWords(num4));
+        System.out.println(obj.numberToWords(num5));
+        System.out.println(obj.numberToWords(num6));
+        System.out.println(obj.numberToWords(num7));
+        System.out.println(obj.numberToWords(num8));
+        System.out.println(obj.numberToWords(num9));
+        System.out.println(obj.numberToWords(num10));
+        System.out.println(obj.numberToWords(num11));
         System.out.println(obj.numberToWords(num12));
+        System.out.println(obj.numberToWords(num13));
     }
 
     public String numberToWords(int num) {
+        StringBuilder result = new StringBuilder();
+        int bigUnitsIndex = 0;
+        while (num != 0) {
+            int remainder = num % 1000;
+            if (remainder > 0) {
+                String threeDigitResult = parseThreeDigit(remainder) + bigUnits[bigUnitsIndex];
+                result.insert(0, threeDigitResult);
+            }
+            num /= 1000;
+            bigUnitsIndex++;
+        }
+        return result.toString().trim().length() == 0 ? "Zero" : result.toString().trim();
+    }
+
+    private String parseThreeDigit(int num) {
+        StringBuilder result = new StringBuilder();
+        if (num > 99) {
+            result.append(digits[num / 100] + " Hundred");
+            num = num % 100;
+        }
+
+        if (num > 19) {
+            result.append(tens[num / 10]);
+            num = num % 10;
+        }
+
+        if (num > 9) {
+            result.append(tenToTwenty[num % 10]);
+            return result.toString();
+        }
+
+        return result.append(digits[num]).toString();
+    }
+
+    public String numberToWordsFailed(int num) {
         StringBuilder sb = new StringBuilder();
 
         Map<Integer, String> hmOnes = new HashMap<>();
@@ -125,9 +168,10 @@ class IntegerToEnglishWords {
                 i++;
             }
 
-
             big++;
         }
         return sb.toString().trim();
     }
+
+
 }
