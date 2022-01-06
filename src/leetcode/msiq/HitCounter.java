@@ -63,8 +63,8 @@ class HitCounter {
          // String[] operations = {"HitCounter", "hit", "hit", "hit", "getHits", "hit", "getHits", "getHits"};
          // int[][] values = {{}, {1}, {2}, {3}, {4}, {300}, {300}, {301}};
 
-          String[] operations = {"HitCounter", "hit", "hit", "hit", "hit", "getHits"};
-          int[][] values = {{}, {1}, {1}, {1}, {300}, {300}};
+        String[] operations = {"HitCounter", "hit", "hit", "hit", "hit", "getHits"};
+        int[][] values = {{}, {1}, {1}, {1}, {300}, {300}};
 
          // String[] operations = {"HitCounter", "hit", "hit", "hit", "hit", "hit", "hit", "getHits", "hit", "getHits", "hit", "getHits"};
          // int[][] values = {{}, {100}, {282}, {411}, {609}, {620}, {744}, {879}, {956}, {976}, {998}, {1055}};

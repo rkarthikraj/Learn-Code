@@ -10,6 +10,10 @@ interface TestB {
     void show();
 }
 
+interface TestC extends TestA, TestB {
+
+}
+
 abstract class TestAB {
     abstract void show();
 }
