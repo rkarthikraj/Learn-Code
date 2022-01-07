@@ -22,7 +22,7 @@ class FileSystem {
         public String fileContent;
 
         public FileNode(boolean isFile) {
-            this.isFile = false;
+            this.isFile = isFile;
             this.children = new HashMap<>();
             this.fileContent = "";
         }
@@ -43,6 +43,7 @@ class FileSystem {
             fileNode = fileNode.children.get(subDir);
         }
 
+        System.out.println("Subdirs: " + Arrays.toString(subDirs));
         if(fileNode.isFile){
             fileAndDirs.add(subDirs[subDirs.length - 1]);
             return fileAndDirs;
@@ -87,7 +88,13 @@ class FileSystem {
             fileNode.children.put(subDir, newNode);
             fileNode = newNode;
         }
+
         fileNode.fileContent += content;
+
+        System.out.println("Subdirs addcontent: " + Arrays.toString(subDirs));
+        System.out.println("Subdirs length: " + subDirs.length);
+        System.out.println("File content: " + fileNode.fileContent);
+        System.out.println("IsFile: " + fileNode.isFile);
     }
 
     public String readContentFromFile(String filePath) {

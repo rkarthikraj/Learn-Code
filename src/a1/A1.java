@@ -11,11 +11,12 @@ public class A1 {
             System.out.println("Remainder: " + remainder + ", Remaining: " + nums);
         }
 
-        String path = "/a/b/c/d";
-        String[] subDirs = path.split("/");
-        for (int i = 0; i < subDirs.length; i++) {
-            System.out.println("->" + subDirs[i]);
-        }
+        //        String path = "/a/b/c/d";
+        //        String[] subDirs = path.split("/");
+        //        for (int i = 0; i < subDirs.length; i++) {
+        //            System.out.println("->" + subDirs[i]);
+        //        }
+
         //        double middleElementIndex = Math.floor(5 / 2);
         //        System.out.println(middleElementIndex);
         //
@@ -43,5 +44,7 @@ public class A1 {
         //            }
         //            System.out.println();
         //        }
+
+        System.out.println(Math.max(0, -2147483648));
     }
 }
