@@ -1,6 +1,8 @@
 package a1;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class A1 {
     public static void main(String[] args) throws IOException {
@@ -45,6 +47,10 @@ public class A1 {
         //            System.out.println();
         //        }
 
-        System.out.println(Math.max(0, -2147483648));
+
+        Set<String> hs = new HashSet<>();
+        hs.add("a");
+        hs.add("a");
+        System.out.println(hs);
     }
 }
