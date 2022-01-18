@@ -1,52 +1,70 @@
 package leetcode.msiq;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 /*
-Not Solved
 https://leetcode.com/problems/lru-cache/
  */
 
-class LRUCache {
-    Map<Integer, Integer> lruHM;
-    List<Integer> tracker;
-    int capacity = 0;
+import java.util.HashMap;
+import java.util.Map;
 
-    public LRUCache(int capacity) {
-        lruHM = new HashMap<>();
-        this.capacity = capacity;
-        tracker = new LinkedList<>();
+class Node {
+    Node prev;
+    Node next;
+    int key;
+    int val;
+
+    public Node(int key, int val) {
+        this.key = key;
+        this.val = val;
+    }
+}
+
+public class LRUCache {
+    Node head = new Node(0, 0);
+    Node tail = new Node(0, 0);
+    Map<Integer, Node> map = new HashMap();
+    int capacity;
+
+    public LRUCache(int _capacity) {
+        capacity = _capacity;
+        head.next = tail;
+        tail.prev = head;
     }
 
     public int get(int key) {
-        if (lruHM.containsKey(key)) {
-            return lruHM.get(key);
-        }
-        return -1;
+        if (map.containsKey(key)) {
+            Node node = map.get(key);
+            remove(node);
+            insert(node);
+            return node.val;
+        } else
+            return -1;
     }
 
     public void put(int key, int value) {
-        if (lruHM.size() >= capacity && tracker.size() >= capacity) {
-            Integer cacheValue = lruHM.get(key);
-            if (cacheValue == null) {
-                int lru = tracker.get(0);
-                lruHM.remove(lru);
-                tracker.remove(0);
-                lruHM.put(key, value);
-                tracker.add(key);
-            } else {
-                tracker.remove(0);
-                lruHM.put(key, value);
-                tracker.add(key);
-            }
-        } else {
-            lruHM.put(key, value);
-            tracker.add(key);
-        }
+        if (map.containsKey(key))
+            remove(map.get(key));
+        if (map.size() == capacity)
+            remove(tail.prev);
+        insert(new Node(key, value));
     }
+
+    private void remove(Node node) {
+        map.remove(node.key);
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    private void insert(Node node) {
+        map.put(node.key, node);
+        Node headNext = head.next;
+        head.next = node;
+        node.prev = head;
+        headNext.prev = node;
+        node.next = headNext;
+    }
+
+
 
     public static void main(String... args) {
         LRUCache obj = null;
@@ -63,16 +81,13 @@ class LRUCache {
                     break;
                 case "put":
                     obj.put(values[i][0], values[i][1]);
-                    System.out.println("Put: " + values[i][0] + ", HM: " + obj.lruHM + ", Tracker: " + obj.tracker);
-                    //System.out.println(obj.lruHM);
-                    //System.out.println(obj.tracker);
+                    System.out.println("Put: " + values[i][0] + ", HM: " + obj.map);
                     break;
                 case "get":
                     System.out.println("Get: " + values[i][0] + " -> " + obj.get(values[i][0]));
                     break;
             }
         }
-
-        System.out.println(obj.lruHM);
+        System.out.println(obj.map);
     }
 }
