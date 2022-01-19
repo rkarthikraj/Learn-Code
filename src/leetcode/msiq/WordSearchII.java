@@ -44,7 +44,10 @@ class WordSearchII {
 
         visited[r][c] = true;
 
-        boolean found = dfs(board, visited, word, r + 1, c, count + 1) || dfs(board, visited, word, r - 1, c, count + 1) || dfs(board, visited, word, r, c + 1, count + 1) || dfs(board, visited, word, r, c - 1, count + 1);
+        boolean found = dfs(board, visited, word, r + 1, c, count + 1) ||
+                        dfs(board, visited, word, r - 1, c, count + 1) ||
+                        dfs(board, visited, word, r, c + 1, count + 1) ||
+                        dfs(board, visited, word, r, c - 1, count + 1);
 
         visited[r][c] = false;
 
