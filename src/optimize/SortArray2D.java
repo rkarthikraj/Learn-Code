@@ -15,6 +15,7 @@ public class SortArray2D {
                 return Integer.compare(a[0], b[0]);
             }
         });
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
 
         for (int i = 0; i < intervals.length; i++) {
             System.out.println(intervals[i][0] + "-" + intervals[i][1]);
