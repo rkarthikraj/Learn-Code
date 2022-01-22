@@ -31,7 +31,12 @@ public class A1 {
         //         System.out.println("--" + (2 % 4));
 
         //System.out.println((double) 3/7);
-        //System.out.println(3%7);
+//        System.out.println("1%4 :" + (1 % 4));
+//        System.out.println("2%4 :" + (2 % 4));
+//        System.out.println("3%4 :" + (3 % 4));
+//        System.out.println("4%4 :" + (4 % 4));
+        System.out.println("0%3 :" + Math.ceil(0 % 3));
+
 
         //        int one = (8 / 3) * 3;
         //        int two = 8 / 3;
