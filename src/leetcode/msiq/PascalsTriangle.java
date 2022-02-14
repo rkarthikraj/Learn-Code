@@ -11,7 +11,7 @@ Memory Usage: 38.6 MB, less than 8.63% of Java online submissions for Pascal's T
 class PascalsTriangle {
     public static void main(String[] args) {
         PascalsTriangle obj = new PascalsTriangle();
-        System.out.println(obj.generate(1));
+        System.out.println(obj.generate(6));
     }
 
     public List<List<Integer>> generate(int numRows) {

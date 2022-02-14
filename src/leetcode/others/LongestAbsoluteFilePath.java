@@ -3,9 +3,6 @@ package leetcode.others;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
-Not yet solved.
- */
 class LongestAbsoluteFilePath {
     public static void main(String[] args) {
         LongestAbsoluteFilePath obj = new LongestAbsoluteFilePath();
@@ -14,40 +11,30 @@ class LongestAbsoluteFilePath {
     }
 
     public int lengthLongestPath(String input) {
-        int length = Integer.MIN_VALUE;
-        String[] path = input.split("\n");
-        Map<String, String> map = new HashMap<>();
-        System.out.println(input);
+        int length = 0;
+        Map<Integer, String> map = new HashMap<>();
+        String[] lines = input.split("\n");
 
-        int previousTabCount = 0;
-        String lineage = "";
-        for (int i = 0; i < path.length; i++) {
-            int tabCount = 0;
-            while (path[i].charAt(tabCount) == '\t') {
-                tabCount++;
-            }
-
-            if (tabCount != 0) {
-                if (tabCount == previousTabCount) {
-                    lineage += "";
-                } else {
-                    lineage += tabCount;
-                }
-
-                if (!map.containsKey(lineage)) {
-                    map.put(lineage, path[i].substring(tabCount));
-                } else {
-                    map.put(lineage, map.get(lineage) + "," + path[i].substring(tabCount));
-                }
-                previousTabCount = tabCount;
-            } else {
-                map.put(tabCount + "", path[i]);
-                lineage += tabCount;
+        for (String line : lines) {
+            String[] tabSplit = line.split("\t");
+            String lastValue = tabSplit[tabSplit.length - 1];
+            int tabCount = tabSplit.length - 1;
+            map.put(tabCount, lastValue);
+            if (lastValue.contains(".")) {
+                length = Math.max(length, getLength(map, tabCount));
             }
         }
 
-        System.out.println(map);
+        return length;
+    }
 
-        return length == Integer.MIN_VALUE ? 0 : length;
+    public int getLength(Map<Integer, String> map, int limit) {
+        int length = 0;
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            if (entry.getKey() <= limit) {
+                length += entry.getValue().length();
+            }
+        }
+        return length + limit;
     }
 }
