@@ -1,17 +1,19 @@
 package a1;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 public class A1 {
     public static void main(String[] args) throws IOException {
-        int nums = 0;
-        while (nums > 0) {
-            int remainder = nums % 100;
-            nums /= 100;
-            System.out.println("Remainder: " + remainder + ", Remaining: " + nums);
+        for (int c = 0; c < 9; c++) {
+            System.out.println(c / 3);
         }
+        //        int nums = 0;
+        //        while (nums > 0) {
+        //            int remainder = nums % 100;
+        //            nums /= 100;
+        //            System.out.println("Remainder: " + remainder + ", Remaining: " + nums);
+        //        }
+        //
 
         //        String path = "/a/b/c/d";
         //        String[] subDirs = path.split("/");
@@ -30,12 +32,12 @@ public class A1 {
         //        }
         //         System.out.println("--" + (2 % 4));
 
-        //System.out.println((double) 3/7);
-//        System.out.println("1%4 :" + (1 % 4));
-//        System.out.println("2%4 :" + (2 % 4));
-//        System.out.println("3%4 :" + (3 % 4));
-//        System.out.println("4%4 :" + (4 % 4));
-        System.out.println("0%3 :" + Math.ceil(0 % 3));
+        //        System.out.println((double) 3 / 7);
+        //        System.out.println("1%4 :" + (1 % 4));
+        //        System.out.println("2%4 :" + (2 % 4));
+        //        System.out.println("3%4 :" + (3 % 4));
+        //        System.out.println("4%4 :" + (4 % 4));
+        //        System.out.println("0%3 :" + Math.ceil(0 % 3));
 
 
         //        int one = (8 / 3) * 3;
@@ -53,9 +55,9 @@ public class A1 {
         //        }
 
 
-        Set<String> hs = new HashSet<>();
-        hs.add("a");
-        hs.add("a");
-        System.out.println(hs);
+        //        Set<String> hs = new HashSet<>();
+        //        hs.add("a");
+        //        hs.add("a");
+        //        System.out.println(hs);
     }
 }
