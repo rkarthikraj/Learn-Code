@@ -15,7 +15,7 @@ class SearchInRotatedSortedArray {
         int target = 0;
         // System.out.println(obj.search(nums, target));
 
-        System.out.println(obj.search(nums1, 4));
+        System.out.println(obj.search(nums1, 7));
         //System.out.println(obj.mySearch(nums2));
         //System.out.println(obj.mySearch(nums3));
     }

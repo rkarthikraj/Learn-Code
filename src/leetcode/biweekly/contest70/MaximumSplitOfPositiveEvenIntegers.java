@@ -9,8 +9,8 @@ class MaximumSplitOfPositiveEvenIntegers {
         long finalSum1 = 12;
         long finalSum2 = 7;
         long finalSum3 = 8;
-        System.out.println(obj.maximumEvenSplit(finalSum1));
-        System.out.println(obj.maximumEvenSplit(finalSum2));
+        //System.out.println(obj.maximumEvenSplit(finalSum1));
+        //System.out.println(obj.maximumEvenSplit(finalSum2));
         System.out.println(obj.maximumEvenSplit(finalSum3));
     }
 
