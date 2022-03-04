@@ -5,11 +5,8 @@ import java.util.Arrays;
 class RotateArray {
     public static void main(String[] args) {
         RotateArray obj = new RotateArray();
-        // int[] nums = {1, 2, 3, 4, 5, 6, 7};
-        // int k = 3;
-
-        int[] nums = {-1};
-        int k = 2;
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        int k = 3;
 
         obj.rotate(nums, k);
     }
@@ -25,21 +22,21 @@ class RotateArray {
     }
 
     public void rotate(int[] nums, int k) {
-        //        int[] tempArr = new int[nums.length];
-        //        for (int i = 0; i < nums.length; i++) {
-        //            tempArr[(i + k) % nums.length] = nums[i];
-        //        }
-        //        System.out.println(Arrays.toString(tempArr));
-
+//        if k > len(nums):
+//            k = k % len(nums)
         k = k % nums.length;
+
         System.out.println("Length: " + nums.length);
         System.out.println("K MOD: " + k);
 
         reverse(nums, 0, nums.length - 1);
         System.out.println("Reverse: " + Arrays.toString(nums));
+
         reverse(nums, 0, k - 1);
-        System.out.println("Reverse only k: " + Arrays.toString(nums));
-        reverse(nums, k , nums.length - 1);
-        System.out.println("Rotated: " + Arrays.toString(nums));
+        System.out.println("K Part: " + Arrays.toString(nums));
+
+        reverse(nums, k, nums.length - 1);
+        System.out.println("Rest of K Part: " + Arrays.toString(nums));
+
     }
 }
