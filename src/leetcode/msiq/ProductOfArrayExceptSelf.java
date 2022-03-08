@@ -5,15 +5,14 @@ import java.util.Arrays;
 class ProductOfArrayExceptSelf {
     public static void main(String[] args) {
         ProductOfArrayExceptSelf obj = new ProductOfArrayExceptSelf();
-        int[] nums = {1, 2, 3, 4};
-        // [24,12,8,6]
-        System.out.println(Arrays.toString(obj.productExceptSelf(nums)));
+        int[] nums1 = {1, 2, 3, 4};
+
+        System.out.println(Arrays.toString(obj.productExceptSelf(nums1)));
     }
 
     public int[] productExceptSelf(int[] nums) {
         int length = nums.length;
         int[] result = new int[length];
-
         return compute(0, nums, length, result);
     }
 
