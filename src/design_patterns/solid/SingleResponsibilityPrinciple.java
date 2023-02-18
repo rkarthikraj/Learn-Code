@@ -1,4 +1,4 @@
-package design.solid;
+package design_patterns.solid;
 
 /**
  * A class should have one and only one reason to change.

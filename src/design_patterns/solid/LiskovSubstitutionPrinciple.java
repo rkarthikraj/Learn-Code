@@ -1,4 +1,4 @@
-package design.solid;
+package design_patterns.solid;
 
 /**
  * Liskov Substitution Principle

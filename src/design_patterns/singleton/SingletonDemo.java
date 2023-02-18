@@ -1,6 +1,6 @@
-package design.singleton;
+package design_patterns.singleton;
 
-public class SingletonInstance {
+public class SingletonDemo {
     public static void main(String[] args) {
         Singleton initialSingletonInstance = Singleton.getInstance();
         System.out.println("Initial Singleton Instance: " + initialSingletonInstance.hashCode());
