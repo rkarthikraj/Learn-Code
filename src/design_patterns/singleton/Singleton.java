@@ -12,8 +12,8 @@ package design_patterns.singleton;
 }*/
 
 /* Lazy Loading
- * Here initance is initialized only if it is not initialized.
- * Because we dont ahve to initialize it from the starting itself
+ * Here instance is initialized only if it is not initialized.
+ * Because we dont have to initialize it from the starting itself
  */
 /*public class Singleton {
     private static Singleton objSingleton = null;
