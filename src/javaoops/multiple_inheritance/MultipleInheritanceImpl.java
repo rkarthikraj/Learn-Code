@@ -14,6 +14,8 @@ public class MultipleInheritanceImpl implements InterfaceA, InterfaceB, Interfac
     public void doSomethingInterfaceC(){
         System.out.println("Interface C method implemented in subclass");
     }
+    public void doSomething(){}
+
 
     public static void main(String[] args) {
         InterfaceA objInterfaceA = new MultipleInheritanceImpl();

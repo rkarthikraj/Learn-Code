@@ -23,6 +23,6 @@ public class ConstructorRealTimeExample {
 
     public static void main(String args[]) throws IOException {
         ConstructorRealTimeExample obj = new ConstructorRealTimeExample();
-        obj.divideByZeroException(15, 2);
+        obj.divideByZeroException(15, 0);
     }
 }
