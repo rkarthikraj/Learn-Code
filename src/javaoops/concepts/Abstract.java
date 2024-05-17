@@ -6,7 +6,7 @@ abstract class TestAbstract {
     abstract void testAbstractMethod();
 
     void nonAbstractMethod() {
-        System.out.println("This is from an Non Abstract Method in an Abstract Class");
+        System.out.println("This is an Non Abstract Method in an Abstract Class");
     }
 }
 

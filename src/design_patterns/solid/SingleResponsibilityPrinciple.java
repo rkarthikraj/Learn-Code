@@ -5,34 +5,35 @@ package design_patterns.solid;
  */
 
 class AccountService {
-    AccountRepository accountRepository = new AccountRepository();
-    NotificationService notificationService = new NotificationService();
-
-    public void openAccount() {
-        System.out.println("Fill account details to open account.");
+    public String openAccount(String nameOfAccountHolder) {
+        System.out.println("Account opening form details filled for: " + nameOfAccountHolder);
+        return nameOfAccountHolder;
         //System.out.println("Store account object in database.");
         //System.out.println("Sent out welcome message.");
-
-        accountRepository.create();
-        notificationService.sendNotification();
     }
 }
 
 class AccountRepository {
-    public void create() {
-        System.out.println("Store account object in database.");
+    public void create(String nameOfAccountHolder) {
+        System.out.println("Account created for: " + nameOfAccountHolder);
     }
 }
 
 class NotificationService {
-    public void sendNotification() {
-        System.out.println("Sent out welcome message.");
+    public void sendNotification(String nameOfAccountHolder) {
+        System.out.println("Welcome " + nameOfAccountHolder + ", happy banking with us.");
     }
 }
 
 public class SingleResponsibilityPrinciple {
     public static void main(String[] args) {
         AccountService accountService = new AccountService();
-        accountService.openAccount();
+        String nameOfAccountHolder = accountService.openAccount("KarthikRaj");
+
+        AccountRepository accountRepository = new AccountRepository();
+        accountRepository.create(nameOfAccountHolder);
+
+        NotificationService notificationService = new NotificationService();
+        notificationService.sendNotification(nameOfAccountHolder);
     }
 }

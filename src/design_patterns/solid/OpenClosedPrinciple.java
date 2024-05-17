@@ -68,14 +68,14 @@ class NaiveSortMethod {
 public class OpenClosedPrinciple {
     public static void main(String[] args) {
         int[] nums = {1, 3, 4, 2, 5};
-        //        NaiveSortMethod.sortAscendingOrder(nums);
-        //        System.out.println(Arrays.toString(nums));
-        //        NaiveSortMethod.sortDescendingOrder(nums);
-        //        System.out.println(Arrays.toString(nums));
+        NaiveSortMethod.sortAscendingOrder(nums);
+        System.out.println(Arrays.toString(nums));
+        NaiveSortMethod.sortDescendingOrder(nums);
+        System.out.println(Arrays.toString(nums));
 
-        Sort.sort(nums, new AscendingComparator());
-        System.out.println(Arrays.toString(nums));
-        Sort.sort(nums, new DescendingComparator());
-        System.out.println(Arrays.toString(nums));
+//        Sort.sort(nums, new AscendingComparator());
+//        System.out.println(Arrays.toString(nums));
+//        Sort.sort(nums, new DescendingComparator());
+//        System.out.println(Arrays.toString(nums));
     }
 }
